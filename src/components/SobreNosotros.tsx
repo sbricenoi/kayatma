@@ -42,46 +42,46 @@ export default function SobreNosotros() {
         {/* ── Encabezado ── */}
         <div
           ref={header.ref}
-          className={`text-center mb-20 reveal ${header.isVisible ? "visible" : ""}`}
+          className={`text-center mb-24 reveal ${header.isVisible ? "visible" : ""}`}
         >
-          <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-5">
+          <p className="text-[#B2B89A] text-[10px] tracking-[0.55em] uppercase font-['Jost'] mb-7">
             Nuestra Esencia
           </p>
           <h2 className="font-['Cormorant_Garamond'] text-[clamp(2.8rem,7vw,5rem)] font-light text-[#263B16] leading-tight">
             ¿Qué es Kay Atma?
           </h2>
-          <div className="w-12 h-px bg-[#B2B89A] mx-auto mt-7" />
+          <div className="w-12 h-px bg-[#B2B89A] mx-auto mt-8" />
         </div>
 
         {/* ── Cuerpo: dos columnas ── */}
-        <div className="grid md:grid-cols-2 gap-16 md:gap-24 items-start mb-24">
+        <div className="grid md:grid-cols-2 gap-16 md:gap-28 items-start mb-28">
 
           {/* Columna izquierda — texto */}
           <div
             ref={left.ref}
             className={`reveal-left ${left.isVisible ? "visible" : ""}`}
           >
-            <blockquote className="font-['Cormorant_Garamond'] text-[clamp(1.25rem,2.5vw,1.6rem)] italic font-light text-[#263B16] leading-relaxed mb-8 border-l-2 border-[#B2B89A] pl-6">
+            <blockquote className="font-['Cormorant_Garamond'] text-[clamp(1.25rem,2.5vw,1.55rem)] italic font-light text-[#263B16] leading-relaxed mb-10 border-l-2 border-[#B2B89A] pl-7 py-1">
               &ldquo;Kay Atma nació del deseo de crear un espacio donde cada persona pudiera encontrarse consigo misma, sin prisa, sin juicio, solo con presencia.&rdquo;
             </blockquote>
-            <p className="text-[#1A1A1A]/60 text-[0.92rem] leading-[1.95] font-['Jost'] font-light mb-5">
+            <p className="text-[#1A1A1A]/60 text-[0.92rem] leading-[2] font-['Jost'] font-light mb-6">
               Somos una escuela de yoga y terapias ancestrales ubicada en <span className="text-[#263B16] font-normal">La Ligua, V Región de Chile</span>. Nuestra propuesta integra diversas tradiciones del yoga con un enfoque profundo en el bienestar físico, emocional y espiritual.
             </p>
-            <p className="text-[#1A1A1A]/55 text-[0.92rem] leading-[1.95] font-['Jost'] font-light">
+            <p className="text-[#1A1A1A]/50 text-[0.92rem] leading-[2] font-['Jost'] font-light">
               Practicar aquí es crear un espacio para escucharte. Es habitar tu cuerpo con respeto y conciencia. Cada clase es una invitación a volver a ti.
             </p>
 
             {/* Dato visual */}
-            <div className="mt-12 flex gap-10">
+            <div className="mt-14 flex gap-14 pt-8 border-t border-[#B2B89A]/20">
               {[
                 { num: "4+", label: "Modalidades de yoga" },
                 { num: "4+", label: "Terapias ancestrales" },
               ].map((d) => (
                 <div key={d.num}>
-                  <p className="font-['Cormorant_Garamond'] text-5xl font-light text-[#263B16] leading-none">
+                  <p className="font-['Cormorant_Garamond'] text-6xl font-light text-[#263B16] leading-none mb-3">
                     {d.num}
                   </p>
-                  <p className="text-[#1A1A1A]/45 text-xs tracking-[0.15em] uppercase font-['Jost'] mt-2">
+                  <p className="text-[#1A1A1A]/40 text-[10px] tracking-[0.2em] uppercase font-['Jost']">
                     {d.label}
                   </p>
                 </div>
@@ -148,27 +148,27 @@ export default function SobreNosotros() {
         </div>
 
         {/* ── Valores — cards numeradas ── */}
-        <div ref={valRef} className="grid sm:grid-cols-3 gap-px bg-[#B2B89A]/15">
+        <div ref={valRef} className="grid sm:grid-cols-3 gap-px bg-[#B2B89A]/20">
           {valores.map((v, i) => (
             <div
               key={v.num}
-              className={`bg-[#F2F0EB] hover:bg-white group p-10 md:p-12 transition-all duration-500 reveal ${valVisible ? "visible" : ""}`}
+              className={`bg-[#F2F0EB] hover:bg-white group p-12 md:p-14 transition-all duration-500 reveal ${valVisible ? "visible" : ""}`}
               style={getDelay(i)}
             >
               {/* Número grande */}
-              <p className="font-['Cormorant_Garamond'] text-7xl font-light text-[#263B16]/10 leading-none mb-6 group-hover:text-[#263B16]/20 transition-colors duration-500">
+              <p className="font-['Cormorant_Garamond'] text-8xl font-light text-[#263B16]/12 leading-none mb-8 group-hover:text-[#263B16]/22 transition-colors duration-500">
                 {v.num}
               </p>
               {/* Icono */}
-              <p className="text-[#B2B89A] text-lg mb-4 font-['Cormorant_Garamond']">{v.icon}</p>
+              <p className="text-[#B2B89A] text-xl mb-5 font-['Cormorant_Garamond']">{v.icon}</p>
               {/* Título */}
-              <h3 className="font-['Cormorant_Garamond'] text-2xl text-[#263B16] font-light mb-4">
+              <h3 className="font-['Cormorant_Garamond'] text-2xl md:text-3xl text-[#263B16] font-light mb-5">
                 {v.titulo}
               </h3>
               {/* Línea */}
-              <div className="w-8 h-px bg-[#B2B89A] mb-5" />
+              <div className="w-10 h-px bg-[#B2B89A] mb-6" />
               {/* Descripción */}
-              <p className="text-[#1A1A1A]/55 text-sm leading-loose font-['Jost'] font-light">
+              <p className="text-[#1A1A1A]/50 text-sm leading-[1.9] font-['Jost'] font-light">
                 {v.desc}
               </p>
             </div>

@@ -80,16 +80,16 @@ export default function Contacto() {
         {/* ── Encabezado ── */}
         <div
           ref={header.ref}
-          className={`text-center mb-20 reveal ${header.isVisible ? "visible" : ""}`}
+          className={`text-center mb-24 reveal ${header.isVisible ? "visible" : ""}`}
         >
-          <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-5">
+          <p className="text-[#B2B89A] text-[10px] tracking-[0.55em] uppercase font-['Jost'] mb-7">
             Comienza tu camino
           </p>
           <h2 className="font-['Cormorant_Garamond'] text-[clamp(3rem,8vw,6rem)] font-light text-[#F2F0EB] leading-none">
             Hablemos
           </h2>
-          <div className="w-12 h-px bg-[#B2B89A]/50 mx-auto mt-7 mb-7" />
-          <p className="text-[#F2F0EB]/50 text-sm font-['Jost'] font-light max-w-md mx-auto leading-loose">
+          <div className="w-12 h-px bg-[#B2B89A]/50 mx-auto mt-9 mb-9" />
+          <p className="text-[#F2F0EB]/50 text-sm font-['Jost'] font-light max-w-md mx-auto leading-[1.95]">
             Si sientes el llamado a comenzar tu práctica, escríbenos. Estamos aquí para acompañarte en cada paso.
           </p>
         </div>
@@ -99,29 +99,29 @@ export default function Contacto() {
           {/* ── Info de contacto ── */}
           <div
             ref={infoRef.ref}
-            className={`reveal-left ${infoRef.isVisible ? "visible" : ""} space-y-12 md:max-w-xs`}
+            className={`reveal-left ${infoRef.isVisible ? "visible" : ""} space-y-14 md:max-w-xs`}
           >
-            {/* Ubicación */}
+            {/* Ubicación y redes */}
             <div>
-              <p className="text-[#B2B89A] text-[9px] tracking-[0.45em] uppercase font-['Jost'] mb-5">
+              <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-8">
                 Encuéntranos
               </p>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {[
                   { label: "Ubicación", value: "La Ligua, V Región, Chile", href: null },
                   { label: "Instagram", value: "@kay_atma", href: "https://instagram.com/kay_atma" },
                   { label: "WhatsApp", value: "Escríbenos", href: "https://wa.me/56900000000" },
                 ].map((item) => (
                   <div key={item.label}>
-                    <p className="text-[#F2F0EB]/30 text-[9px] uppercase tracking-[0.3em] font-['Jost'] mb-1.5">{item.label}</p>
+                    <p className="text-[#F2F0EB]/35 text-[10px] uppercase tracking-[0.35em] font-['Jost'] mb-2">{item.label}</p>
                     {item.href ? (
                       <a href={item.href} target="_blank" rel="noopener noreferrer"
-                        className="font-['Cormorant_Garamond'] text-xl font-light text-[#B2B89A] hover:text-[#F2F0EB] transition-colors duration-300"
+                        className="font-['Cormorant_Garamond'] text-2xl font-light text-[#B2B89A] hover:text-[#F2F0EB] transition-colors duration-300 block"
                       >
                         {item.value}
                       </a>
                     ) : (
-                      <p className="font-['Cormorant_Garamond'] text-xl font-light text-[#F2F0EB]/80">{item.value}</p>
+                      <p className="font-['Cormorant_Garamond'] text-2xl font-light text-[#F2F0EB]/80">{item.value}</p>
                     )}
                   </div>
                 ))}
@@ -129,31 +129,31 @@ export default function Contacto() {
             </div>
 
             {/* Separador */}
-            <div className="w-12 h-px bg-[#B2B89A]/25" />
+            <div className="w-14 h-px bg-[#B2B89A]/20" />
 
             {/* Horarios */}
             <div>
-              <p className="text-[#B2B89A] text-[9px] tracking-[0.45em] uppercase font-['Jost'] mb-5">
+              <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-8">
                 Horarios
               </p>
-              <div className="space-y-4">
+              <div className="space-y-0">
                 {horarios.map((h) => (
-                  <div key={h.dia} className="group">
-                    <div className="flex justify-between items-end pb-3 border-b border-[#F2F0EB]/6 group-hover:border-[#B2B89A]/20 transition-colors duration-300">
-                      <span className="text-[#F2F0EB]/50 text-xs font-['Jost'] font-light leading-snug max-w-[120px]">{h.dia}</span>
-                      <span className="text-[#B2B89A] text-xs font-['Jost'] text-right">{h.hora}</span>
+                  <div key={h.dia} className="group border-b border-[#F2F0EB]/8 hover:border-[#B2B89A]/20 transition-colors duration-300 last:border-b-0">
+                    <div className="flex justify-between items-baseline py-4">
+                      <span className="text-[#F2F0EB]/50 text-sm font-['Jost'] font-light leading-snug">{h.dia}</span>
+                      <span className="text-[#B2B89A] text-xs font-['Jost'] tracking-wide">{h.hora}</span>
                     </div>
                   </div>
                 ))}
               </div>
-              <p className="text-[#F2F0EB]/25 text-[10px] mt-5 font-['Jost'] leading-relaxed">
+              <p className="text-[#F2F0EB]/25 text-[10px] mt-6 font-['Jost'] leading-relaxed">
                 * Horarios sujetos a cambios. Consulta disponibilidad.
               </p>
             </div>
 
             {/* Cita */}
-            <div className="border-l border-[#B2B89A]/25 pl-5">
-              <p className="font-['Cormorant_Garamond'] text-base italic font-light text-[#F2F0EB]/40 leading-relaxed">
+            <div className="border-l-2 border-[#B2B89A]/20 pl-6">
+              <p className="font-['Cormorant_Garamond'] text-[1.05rem] italic font-light text-[#F2F0EB]/40 leading-[1.75]">
                 &ldquo;La práctica es el camino. El camino eres tú.&rdquo;
               </p>
             </div>
@@ -192,13 +192,13 @@ export default function Contacto() {
               <form onSubmit={handleSubmit} className="space-y-0">
 
                 {/* Fila nombre + email */}
-                <div className="grid sm:grid-cols-2 gap-5 mb-5">
+                <div className="grid sm:grid-cols-2 gap-6 mb-8">
                   {[
                     { name: "nombre", label: "Nombre *", type: "text", placeholder: "Tu nombre completo", required: true },
-                    { name: "email", label: "Correo *", type: "email", placeholder: "tu@correo.com", required: true },
+                    { name: "email", label: "Correo electrónico *", type: "email", placeholder: "tu@correo.com", required: true },
                   ].map((field) => (
                     <div key={field.name}>
-                      <label className="block text-[#B2B89A] text-[9px] tracking-[0.35em] uppercase mb-2.5 font-['Jost']">
+                      <label className="block text-[#B2B89A] text-[10px] tracking-[0.4em] uppercase mb-3 font-['Jost']">
                         {field.label}
                       </label>
                       <input
@@ -215,8 +215,8 @@ export default function Contacto() {
                 </div>
 
                 {/* Teléfono */}
-                <div className="mb-5">
-                  <label className="block text-[#B2B89A] text-[9px] tracking-[0.35em] uppercase mb-2.5 font-['Jost']">
+                <div className="mb-8">
+                  <label className="block text-[#B2B89A] text-[10px] tracking-[0.4em] uppercase mb-3 font-['Jost']">
                     Teléfono (opcional)
                   </label>
                   <input
@@ -230,8 +230,8 @@ export default function Contacto() {
                 </div>
 
                 {/* Interés */}
-                <div className="mb-5">
-                  <label className="block text-[#B2B89A] text-[9px] tracking-[0.35em] uppercase mb-2.5 font-['Jost']">
+                <div className="mb-8">
+                  <label className="block text-[#B2B89A] text-[10px] tracking-[0.4em] uppercase mb-3 font-['Jost']">
                     Me interesa
                   </label>
                   <select
@@ -249,8 +249,8 @@ export default function Contacto() {
                 </div>
 
                 {/* Mensaje */}
-                <div className="mb-10">
-                  <label className="block text-[#B2B89A] text-[9px] tracking-[0.35em] uppercase mb-2.5 font-['Jost']">
+                <div className="mb-12">
+                  <label className="block text-[#B2B89A] text-[10px] tracking-[0.4em] uppercase mb-3 font-['Jost']">
                     Mensaje
                   </label>
                   <textarea

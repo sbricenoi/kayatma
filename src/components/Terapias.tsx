@@ -63,22 +63,22 @@ export default function Terapias() {
         {/* ── Encabezado ── */}
         <div
           ref={header.ref}
-          className={`mb-20 reveal ${header.isVisible ? "visible" : ""}`}
+          className={`mb-24 reveal ${header.isVisible ? "visible" : ""}`}
         >
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
-              <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-5">
+              <p className="text-[#B2B89A] text-[10px] tracking-[0.55em] uppercase font-['Jost'] mb-7">
                 Sanación profunda
               </p>
               <h2 className="font-['Cormorant_Garamond'] text-[clamp(2.8rem,7vw,5rem)] font-light text-[#263B16] leading-tight">
                 Terapias Ancestrales
               </h2>
             </div>
-            <p className="text-[#1A1A1A]/45 text-sm font-['Jost'] font-light max-w-xs leading-loose md:text-right">
+            <p className="text-[#1A1A1A]/45 text-[0.85rem] font-['Jost'] font-light max-w-xs leading-[1.9] md:text-right">
               Prácticas milenarias que trabajan en los planos físico, energético y emocional.
             </p>
           </div>
-          <div className="w-full h-px bg-gradient-to-r from-[#B2B89A]/30 to-transparent mt-10" />
+          <div className="w-full h-px bg-gradient-to-r from-[#B2B89A]/25 to-transparent mt-12" />
         </div>
 
         {/* ── Lista expandible ── */}
@@ -94,10 +94,10 @@ export default function Terapias() {
                 {/* Cabecera — siempre visible */}
                 <button
                   onClick={() => setExpanded(isOpen ? null : i)}
-                  className="group w-full border-b border-[#B2B89A]/20 hover:border-[#263B16]/30 py-8 md:py-10 flex items-start gap-6 md:gap-10 text-left transition-all duration-400 hover:bg-white/50 px-0"
+                  className="group w-full border-b border-[#B2B89A]/20 hover:border-[#263B16]/30 py-9 md:py-11 flex items-start gap-8 md:gap-12 text-left transition-all duration-400 hover:bg-white/40 px-0"
                 >
                   {/* Número */}
-                  <span className="font-['Cormorant_Garamond'] text-4xl md:text-5xl font-light text-[#263B16]/15 group-hover:text-[#263B16]/30 transition-colors duration-300 flex-shrink-0 leading-none mt-1">
+                  <span className="font-['Cormorant_Garamond'] text-5xl md:text-6xl font-light text-[#263B16]/12 group-hover:text-[#263B16]/25 transition-colors duration-300 flex-shrink-0 leading-none mt-1">
                     {t.num}
                   </span>
 
@@ -114,9 +114,9 @@ export default function Terapias() {
 
                       {/* Datos + toggle */}
                       <div className="flex items-center gap-6 flex-shrink-0">
-                        <div className="hidden sm:flex flex-col items-end gap-1">
-                          <span className="text-[#1A1A1A]/35 text-xs font-['Jost'] font-light">{t.duracion}</span>
-                          <span className="text-[#1A1A1A]/35 text-xs font-['Jost'] font-light">{t.modalidad}</span>
+                        <div className="hidden sm:flex flex-col items-end gap-2">
+                          <span className="font-['Cormorant_Garamond'] text-lg font-light text-[#263B16]/60">{t.duracion}</span>
+                          <span className="text-[#1A1A1A]/40 text-[10px] font-['Jost'] tracking-wider">{t.modalidad}</span>
                         </div>
                         {/* Chevron */}
                         <div
@@ -136,7 +136,7 @@ export default function Terapias() {
                   className="overflow-hidden transition-all duration-500"
                   style={{ maxHeight: isOpen ? "600px" : "0px", opacity: isOpen ? 1 : 0 }}
                 >
-                  <div className="py-8 md:py-10 pl-0 md:pl-[calc(3rem+2.5rem)] grid md:grid-cols-[1fr_auto] gap-8 md:gap-16 border-b border-[#B2B89A]/15">
+                    <div className="py-10 md:py-12 pl-0 md:pl-[calc(3.5rem+3rem)] grid md:grid-cols-[1fr_auto] gap-10 md:gap-20 border-b border-[#B2B89A]/15">
                     <div>
                       {/* Descripción */}
                       <p className="text-[#1A1A1A]/65 text-[0.92rem] leading-[1.95] font-['Jost'] font-light mb-8">

@@ -38,15 +38,15 @@ export default function Maestro() {
         {/* ── Encabezado ── */}
         <div
           ref={header.ref}
-          className={`text-center mb-20 reveal ${header.isVisible ? "visible" : ""}`}
+          className={`text-center mb-24 reveal ${header.isVisible ? "visible" : ""}`}
         >
-          <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-5">
+          <p className="text-[#B2B89A] text-[10px] tracking-[0.55em] uppercase font-['Jost'] mb-7">
             Guía del camino
           </p>
           <h2 className="font-['Cormorant_Garamond'] text-[clamp(2.8rem,7vw,5rem)] font-light text-[#F2F0EB] leading-tight">
             Maestro Gyan Kay
           </h2>
-          <div className="w-12 h-px bg-[#B2B89A]/60 mx-auto mt-7" />
+          <div className="w-12 h-px bg-[#B2B89A]/60 mx-auto mt-8" />
         </div>
 
         {/* ── Historia + cita ── */}
@@ -54,19 +54,19 @@ export default function Maestro() {
           ref={historia.ref}
           className={`grid md:grid-cols-[1fr_auto] gap-12 items-start mb-20 reveal ${historia.isVisible ? "visible" : ""}`}
         >
-          <div className="space-y-6 max-w-2xl">
-            <blockquote className="font-['Cormorant_Garamond'] text-[clamp(1.2rem,2.8vw,1.65rem)] italic font-light text-[#F2F0EB]/85 leading-relaxed border-l border-[#B2B89A]/40 pl-6">
+          <div className="space-y-7 max-w-2xl">
+            <blockquote className="font-['Cormorant_Garamond'] text-[clamp(1.2rem,2.8vw,1.65rem)] italic font-light text-[#F2F0EB]/85 leading-relaxed border-l border-[#B2B89A]/40 pl-7 py-1">
               &ldquo;Hay viajes que transforman y otros que se realizan con un propósito: traer conocimiento vivo.&rdquo;
             </blockquote>
-            <p className="text-[#F2F0EB]/55 text-[0.9rem] leading-[1.95] font-['Jost'] font-light">
+            <p className="text-[#F2F0EB]/55 text-[0.9rem] leading-[2] font-['Jost'] font-light">
               El Maestro Gyan Kay ha dedicado su vida a la búsqueda y transmisión del conocimiento ancestral del yoga. Su formación combina la academia espiritual de las tradiciones <span className="text-[#B2B89A]">Udasin</span> con la práctica vivencial en centros de enseñanza de México y Latinoamérica.
             </p>
-            <p className="text-[#F2F0EB]/50 text-[0.9rem] leading-[1.95] font-['Jost'] font-light">
+            <p className="text-[#F2F0EB]/45 text-[0.9rem] leading-[2] font-['Jost'] font-light">
               Todo este camino tiene un propósito: traer esta sabiduría a nuestra tierra, a La Ligua, Chile, y a la comunidad que se reúne en Kay Atma.
             </p>
 
             {/* Tags de linaje */}
-            <div className="flex flex-wrap gap-2.5 pt-3">
+            <div className="flex flex-wrap gap-3 pt-4">
               {["Udasin", "Hatha Kriya", "Kundalini", "Elementos Sagrados"].map((tag) => (
                 <span
                   key={tag}
@@ -98,34 +98,34 @@ export default function Maestro() {
         </div>
 
         {/* ── Timeline de formación ── */}
-        <div ref={hitosRef} className="mb-20">
-          <p className="text-[#B2B89A] text-[10px] tracking-[0.45em] uppercase font-['Jost'] mb-10">
+        <div ref={hitosRef} className="mb-24">
+          <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-12">
             Trayectoria de formación
           </p>
           <div className="relative">
             {/* Línea vertical */}
-            <div className="absolute left-[52px] top-0 bottom-0 w-px bg-gradient-to-b from-[#B2B89A]/30 via-[#B2B89A]/20 to-transparent hidden sm:block" />
+            <div className="absolute left-[52px] top-2 bottom-8 w-px bg-gradient-to-b from-[#B2B89A]/35 via-[#B2B89A]/15 to-transparent hidden sm:block" />
 
             <div className="space-y-0">
               {hitos.map((h, i) => (
                 <div
                   key={i}
-                  className={`flex gap-6 sm:gap-10 pb-10 last:pb-0 reveal ${hitosVis ? "visible" : ""}`}
+                  className={`flex gap-8 sm:gap-12 pb-12 last:pb-0 reveal ${hitosVis ? "visible" : ""}`}
                   style={hitosDelay(i)}
                 >
                   {/* Año + dot */}
                   <div className="flex flex-col items-center flex-shrink-0 w-24">
-                    <div className="w-2 h-2 rounded-full bg-[#B2B89A] mt-1 ring-4 ring-[#344F63] z-10" />
-                    <p className="font-['Cormorant_Garamond'] text-[#B2B89A] text-lg font-light mt-2 text-center">
+                    <div className="w-2.5 h-2.5 rounded-full bg-[#B2B89A] mt-1.5 ring-4 ring-[#2a3d50] z-10" />
+                    <p className="font-['Cormorant_Garamond'] text-[#B2B89A] text-xl font-light mt-3 text-center leading-none">
                       {h.año}
                     </p>
                   </div>
                   {/* Contenido */}
-                  <div className="flex-1 pb-8 border-b border-[#F2F0EB]/6 last:border-0">
-                    <p className="text-[#F2F0EB] font-['Jost'] text-xs tracking-[0.2em] uppercase mb-2 mt-0.5">
+                  <div className="flex-1 pb-12 border-b border-[#F2F0EB]/8 last:border-0">
+                    <p className="text-[#F2F0EB]/90 font-['Jost'] text-[11px] tracking-[0.25em] uppercase mb-3">
                       {h.lugar}
                     </p>
-                    <p className="text-[#F2F0EB]/50 text-sm font-['Jost'] font-light leading-loose">
+                    <p className="text-[#F2F0EB]/50 text-[0.9rem] font-['Jost'] font-light leading-[1.9]">
                       {h.desc}
                     </p>
                   </div>
@@ -137,34 +137,35 @@ export default function Maestro() {
 
         {/* ── Elementos Sagrados ── */}
         <div>
-          <p className="text-[#B2B89A] text-[10px] tracking-[0.45em] uppercase font-['Jost'] mb-10">
+          <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-12">
             Maestría en los 5 Elementos Sagrados
           </p>
-          <div ref={elemRef} className="grid sm:grid-cols-5 gap-3">
+          <div ref={elemRef} className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
             {elementos.map((el, i) => (
               <div
                 key={el.nombre}
-                className={`group p-6 md:p-7 border border-[#F2F0EB]/8 hover:border-[#B2B89A]/30 transition-all duration-500 hover:-translate-y-1 text-center reveal ${elemVis ? "visible" : ""}`}
+                className={`group p-8 md:p-10 border border-[#F2F0EB]/10 hover:border-[#B2B89A]/35 transition-all duration-500 hover:-translate-y-1.5 text-center reveal ${elemVis ? "visible" : ""}`}
                 style={{
                   background: "rgba(255,255,255,0.03)",
                   ...elemDelay(i),
                 }}
               >
                 {/* Símbolo */}
-                <p className="font-['Cormorant_Garamond'] text-3xl text-[#B2B89A] mb-3 group-hover:scale-110 transition-transform duration-300">
+                <p className="font-['Cormorant_Garamond'] text-4xl text-[#B2B89A] mb-5 group-hover:scale-110 transition-transform duration-300">
                   {el.simbolo}
                 </p>
                 {/* Nombre */}
-                <h4 className="font-['Cormorant_Garamond'] text-lg font-light text-[#F2F0EB] mb-1">
+                <h4 className="font-['Cormorant_Garamond'] text-xl font-light text-[#F2F0EB] mb-2">
                   {el.nombre}
                 </h4>
                 {/* Nombre sánscrito */}
-                <p className="text-[#B2B89A]/50 text-[9px] tracking-[0.25em] uppercase font-['Jost'] mb-4">
+                <p className="text-[#B2B89A]/50 text-[10px] tracking-[0.3em] uppercase font-['Jost'] mb-5">
                   {el.lat}
                 </p>
+                {/* Separador */}
+                <div className="w-6 h-px bg-[#B2B89A]/30 mx-auto mb-5" />
                 {/* Descripción */}
-                <div className="w-4 h-px bg-[#B2B89A]/30 mx-auto mb-4" />
-                <p className="text-[#F2F0EB]/40 text-xs font-['Jost'] font-light leading-relaxed">
+                <p className="text-[#F2F0EB]/45 text-[0.8rem] font-['Jost'] font-light leading-[1.75]">
                   {el.desc}
                 </p>
               </div>

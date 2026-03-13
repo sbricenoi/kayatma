@@ -65,30 +65,31 @@ export default function Clases() {
         {/* ── Encabezado ── */}
         <div
           ref={header.ref}
-          className={`mb-20 reveal ${header.isVisible ? "visible" : ""}`}
+          className={`mb-24 reveal ${header.isVisible ? "visible" : ""}`}
         >
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-8">
             <div>
-              <p className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-5">
+              <p className="text-[#B2B89A] text-[10px] tracking-[0.55em] uppercase font-['Jost'] mb-7">
                 Tu práctica
               </p>
               <h2 className="font-['Cormorant_Garamond'] text-[clamp(2.8rem,7vw,5rem)] font-light text-[#F2F0EB] leading-tight">
                 Nuestras Clases
               </h2>
             </div>
-            <p className="text-[#F2F0EB]/45 text-sm font-['Jost'] font-light max-w-xs leading-loose md:text-right">
+            <p className="text-[#F2F0EB]/45 text-[0.85rem] font-['Jost'] font-light max-w-xs leading-[1.9] md:text-right">
               En Kay Atma puedes practicar yoga de distintas formas, según lo que hoy necesites.
             </p>
           </div>
-          <div className="w-full h-px bg-gradient-to-r from-[#B2B89A]/30 to-transparent mt-10" />
+          <div className="w-full h-px bg-gradient-to-r from-[#B2B89A]/25 to-transparent mt-12" />
         </div>
 
         {/* ── Pregunta ── */}
-        <div className={`text-center mb-16 reveal ${header.isVisible ? "visible" : ""}`} style={{ transitionDelay: "200ms" }}>
+        <div className={`text-center mb-18 reveal ${header.isVisible ? "visible" : ""}`} style={{ transitionDelay: "200ms" }}>
           <p className="font-['Cormorant_Garamond'] text-[clamp(1.6rem,4vw,2.8rem)] italic text-[#F2F0EB] font-light">
             ¿Qué tipo de yoga es ideal para ti?
           </p>
-          <p className="text-[#B2B89A] text-[10px] tracking-[0.4em] uppercase font-['Jost'] mt-3">
+          <div className="w-8 h-px bg-[#B2B89A]/40 mx-auto mt-5 mb-3" />
+          <p className="text-[#B2B89A] text-[10px] tracking-[0.45em] uppercase font-['Jost']">
             ¡Descubre tu camino!
           </p>
         </div>
