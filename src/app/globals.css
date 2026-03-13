@@ -1,26 +1,100 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap');
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --verde-bosque: #263B16;
+  --azul-petroleo: #344F63;
+  --verde-salvia: #B2B89A;
+  --negro-mineral: #1A1A1A;
+  --blanco-hueso: #F2F0EB;
+  --background: var(--blanco-hueso);
+  --foreground: var(--negro-mineral);
 }
 
 @theme inline {
+  --color-verde-bosque: #263B16;
+  --color-azul-petroleo: #344F63;
+  --color-verde-salvia: #B2B89A;
+  --color-negro-mineral: #1A1A1A;
+  --color-blanco-hueso: #F2F0EB;
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-heading: 'Cormorant Garamond', Georgia, serif;
+  --font-body: 'Jost', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--blanco-hueso);
+  color: var(--negro-mineral);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  line-height: 1.2;
+}
+
+/* Scrollbar sutil */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--blanco-hueso);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--verde-salvia);
+  border-radius: 2px;
+}
+
+/* Transiciones suaves para navegación */
+a {
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Animación de entrada */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease forwards;
+}
+
+.animate-fade-in {
+  animation: fadeIn 1.2s ease forwards;
+}
+
+/* Separador orgánico */
+.divider-leaf {
+  width: 40px;
+  height: 2px;
+  background: var(--verde-salvia);
+  margin: 1.5rem auto;
 }
