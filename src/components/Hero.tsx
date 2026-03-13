@@ -3,137 +3,191 @@
 import { useEffect, useState } from "react";
 
 export default function Hero() {
-  const [visible, setVisible] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(timer);
+    const t = setTimeout(() => setLoaded(true), 80);
+    return () => clearTimeout(t);
   }, []);
 
   return (
     <section
       id="inicio"
-      className="relative min-h-screen flex flex-col items-center justify-center text-center overflow-hidden"
-      style={{ background: "linear-gradient(160deg, #1A1A1A 0%, #263B16 50%, #344F63 100%)" }}
+      className="relative min-h-screen flex flex-col items-center justify-center overflow-hidden"
+      style={{ background: "linear-gradient(150deg, #0f1a0a 0%, #1a2d10 25%, #263B16 55%, #344F63 100%)" }}
     >
-      {/* Overlay de textura sutil */}
-      <div
-        className="absolute inset-0 opacity-20"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23B2B89A' fill-opacity='0.15'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}
-      />
+      {/* ── Fondo: anillos animados ── */}
+      <div className="absolute inset-0 flex items-center justify-center pointer-events-none select-none">
+        {[520, 380, 250, 140].map((size, i) => (
+          <div
+            key={size}
+            className="absolute rounded-full border border-[#B2B89A]"
+            style={{
+              width: size,
+              height: size,
+              opacity: 0.06 + i * 0.025,
+              animation: `breathe ${5 + i * 1.5}s ease-in-out infinite`,
+              animationDelay: `${i * 0.6}s`,
+            }}
+          />
+        ))}
+      </div>
 
-      {/* Círculo decorativo fondo */}
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] rounded-full opacity-5 border border-[#B2B89A]"
-        style={{ maxWidth: "90vw", maxHeight: "90vw" }}
-      />
-      <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[400px] h-[400px] rounded-full opacity-8 border border-[#B2B89A]"
-        style={{ maxWidth: "70vw", maxHeight: "70vw" }}
-      />
+      {/* ── Partículas decorativas ── */}
+      {[
+        { top: "18%", left: "12%", size: 2 },
+        { top: "72%", left: "8%", size: 1.5 },
+        { top: "35%", right: "10%", size: 2.5 },
+        { top: "80%", right: "15%", size: 1.5 },
+        { top: "55%", left: "25%", size: 1 },
+        { top: "25%", right: "28%", size: 1 },
+      ].map((p, i) => (
+        <div
+          key={i}
+          className="absolute rounded-full bg-[#B2B89A]"
+          style={{
+            top: p.top,
+            left: "left" in p ? p.left : undefined,
+            right: "right" in p ? p.right : undefined,
+            width: p.size,
+            height: p.size,
+            opacity: 0.35,
+            animation: `float ${4 + i * 0.8}s ease-in-out infinite`,
+            animationDelay: `${i * 0.5}s`,
+          }}
+        />
+      ))}
 
-      {/* Contenido principal */}
-      <div
-        className={`relative z-10 px-6 max-w-2xl mx-auto transition-all duration-1000 ${
-          visible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-        }`}
-      >
-        {/* Isotipo SVG minimalista — figura humana en equilibrio */}
-        <div className="mb-8 flex justify-center">
+      {/* ── Contenido ── */}
+      <div className="relative z-10 flex flex-col items-center text-center px-6 max-w-3xl mx-auto">
+
+        {/* Isotipo — figura en meditación */}
+        <div
+          className="mb-10"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? "translateY(0) scale(1)" : "translateY(20px) scale(0.9)",
+            transition: "opacity 1.2s cubic-bezier(0.16,1,0.3,1), transform 1.2s cubic-bezier(0.16,1,0.3,1)",
+          }}
+        >
           <svg
-            width="70"
-            height="90"
-            viewBox="0 0 70 90"
+            width="72"
+            height="96"
+            viewBox="0 0 72 96"
             fill="none"
             xmlns="http://www.w3.org/2000/svg"
-            className="opacity-90"
+            className="animate-float"
           >
-            {/* Cabeza */}
-            <circle cx="35" cy="12" r="8" stroke="#B2B89A" strokeWidth="1.5" fill="none" />
-            {/* Cuerpo fluido - trazo continuo representando postura de meditación */}
+            <circle cx="36" cy="11" r="7.5" stroke="#B2B89A" strokeWidth="1.2" fill="none" />
             <path
-              d="M35 20 C35 28 20 32 18 42 C16 52 22 58 35 60 C48 58 54 52 52 42 C50 32 35 28 35 20"
-              stroke="#B2B89A"
-              strokeWidth="1.5"
-              fill="none"
-              strokeLinecap="round"
-              strokeLinejoin="round"
+              d="M36 19 C36 27 22 31 20 41 C18 51 24 57 36 59 C48 57 54 51 52 41 C50 31 36 27 36 19Z"
+              stroke="#B2B89A" strokeWidth="1.2" fill="none" strokeLinecap="round"
             />
-            {/* Brazos abiertos - gesto de apertura */}
-            <path
-              d="M22 36 C14 33 8 36 4 38"
-              stroke="#B2B89A"
-              strokeWidth="1.2"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M48 36 C56 33 62 36 66 38"
-              stroke="#B2B89A"
-              strokeWidth="1.2"
-              fill="none"
-              strokeLinecap="round"
-            />
-            {/* Piernas cruzadas en loto */}
-            <path
-              d="M25 60 C18 65 14 72 18 78 C22 84 30 84 35 82"
-              stroke="#B2B89A"
-              strokeWidth="1.2"
-              fill="none"
-              strokeLinecap="round"
-            />
-            <path
-              d="M45 60 C52 65 56 72 52 78 C48 84 40 84 35 82"
-              stroke="#B2B89A"
-              strokeWidth="1.2"
-              fill="none"
-              strokeLinecap="round"
-            />
+            <path d="M23 37 C15 34 8 37 4 40" stroke="#B2B89A" strokeWidth="1" fill="none" strokeLinecap="round" />
+            <path d="M49 37 C57 34 64 37 68 40" stroke="#B2B89A" strokeWidth="1" fill="none" strokeLinecap="round" />
+            <path d="M26 59 C20 65 15 73 20 80 C25 87 31 87 36 85" stroke="#B2B89A" strokeWidth="1" fill="none" strokeLinecap="round" />
+            <path d="M46 59 C52 65 57 73 52 80 C47 87 41 87 36 85" stroke="#B2B89A" strokeWidth="1" fill="none" strokeLinecap="round" />
           </svg>
         </div>
 
-        {/* Nombre */}
-        <h1 className="text-[#F2F0EB] font-['Cormorant_Garamond'] text-6xl md:text-8xl font-light tracking-[0.15em] uppercase mb-2">
+        {/* Eyebrow */}
+        <p
+          className="text-[#B2B89A] text-[10px] tracking-[0.5em] uppercase font-['Jost'] mb-5"
+          style={{
+            opacity: loaded ? 0.8 : 0,
+            transform: loaded ? "translateY(0)" : "translateY(16px)",
+            transition: "opacity 1s ease 0.3s, transform 1s ease 0.3s",
+          }}
+        >
+          La Ligua · Chile
+        </p>
+
+        {/* Título */}
+        <h1
+          className="font-['Cormorant_Garamond'] text-[clamp(4rem,14vw,8rem)] font-light tracking-[0.12em] uppercase leading-none text-[#F2F0EB] mb-4"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? "translateY(0)" : "translateY(24px)",
+            transition: "opacity 1.1s ease 0.45s, transform 1.1s ease 0.45s",
+          }}
+        >
           Kay Atma
         </h1>
 
-        {/* Subtítulo */}
-        <p className="text-[#B2B89A] text-xs tracking-[0.4em] uppercase mb-10 font-['Jost'] font-light">
+        {/* Subtítulo marca */}
+        <p
+          className="text-[#B2B89A] text-[10px] md:text-xs tracking-[0.42em] uppercase font-['Jost'] font-light mb-10"
+          style={{
+            opacity: loaded ? 0.7 : 0,
+            transform: loaded ? "translateY(0)" : "translateY(16px)",
+            transition: "opacity 1s ease 0.6s, transform 1s ease 0.6s",
+          }}
+        >
           Escuela de Yoga y Terapias Ancestrales
         </p>
 
-        {/* Separador */}
-        <div className="w-16 h-px bg-[#B2B89A] mx-auto mb-10 opacity-60" />
+        {/* Línea separadora animada */}
+        <div
+          className="w-16 h-px bg-gradient-to-r from-transparent via-[#B2B89A] to-transparent mb-10"
+          style={{
+            opacity: loaded ? 0.6 : 0,
+            transition: "opacity 1s ease 0.75s",
+          }}
+        />
 
-        {/* Frase */}
-        <p className="text-[#F2F0EB]/80 font-['Cormorant_Garamond'] text-xl md:text-2xl italic font-light leading-relaxed mb-12">
-          &ldquo;El yoga no es exigencia, es presencia.<br />
+        {/* Cita */}
+        <blockquote
+          className="font-['Cormorant_Garamond'] text-[clamp(1.05rem,2.8vw,1.4rem)] italic font-light text-[#F2F0EB]/75 leading-relaxed max-w-xl mb-14"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 1.1s ease 0.9s, transform 1.1s ease 0.9s",
+          }}
+        >
+          &ldquo;El yoga no es exigencia, es presencia.<br className="hidden sm:block" />
           Es aprender a escuchar el cuerpo sin juicio.&rdquo;
-        </p>
+        </blockquote>
 
         {/* CTAs */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <div
+          className="flex flex-col sm:flex-row items-center gap-4 w-full sm:w-auto"
+          style={{
+            opacity: loaded ? 1 : 0,
+            transform: loaded ? "translateY(0)" : "translateY(20px)",
+            transition: "opacity 1s ease 1.1s, transform 1s ease 1.1s",
+          }}
+        >
           <a
             href="#clases"
-            className="px-8 py-3.5 bg-[#263B16] hover:bg-[#344F63] text-[#F2F0EB] text-xs tracking-[0.3em] uppercase transition-all duration-300 border border-[#263B16] hover:border-[#344F63] w-full sm:w-auto text-center"
+            className="group relative px-9 py-4 bg-[#263B16] hover:bg-[#344F63] text-[#F2F0EB] text-[10px] tracking-[0.4em] uppercase font-['Jost'] transition-all duration-500 w-full sm:w-auto text-center overflow-hidden"
           >
-            Explorar Clases
+            <span className="relative z-10">Explorar Clases</span>
           </a>
           <a
             href="#contacto"
-            className="px-8 py-3.5 border border-[#B2B89A]/50 hover:border-[#F2F0EB] text-[#B2B89A] hover:text-[#F2F0EB] text-xs tracking-[0.3em] uppercase transition-all duration-300 w-full sm:w-auto text-center"
+            className="px-9 py-4 border border-[#B2B89A]/40 hover:border-[#F2F0EB]/70 text-[#B2B89A] hover:text-[#F2F0EB] text-[10px] tracking-[0.4em] uppercase font-['Jost'] transition-all duration-400 w-full sm:w-auto text-center"
           >
             Comenzar Hoy
           </a>
         </div>
       </div>
 
-      {/* Scroll indicator */}
-      <div className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 opacity-50">
-        <span className="text-[#B2B89A] text-xs tracking-[0.3em] uppercase">Descubrir</span>
-        <div className="w-px h-12 bg-gradient-to-b from-[#B2B89A] to-transparent animate-pulse" />
+      {/* ── Scroll indicator ── */}
+      <div
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3"
+        style={{
+          opacity: loaded ? 0.45 : 0,
+          transition: "opacity 1s ease 1.4s",
+        }}
+      >
+        <span className="text-[#B2B89A] text-[9px] tracking-[0.45em] uppercase font-['Jost']">Descubrir</span>
+        <div className="flex flex-col gap-1 items-center">
+          <div className="w-px h-8 bg-gradient-to-b from-[#B2B89A] to-transparent" />
+          <div
+            className="w-1 h-1 rounded-full bg-[#B2B89A]"
+            style={{ animation: "float 2s ease-in-out infinite" }}
+          />
+        </div>
       </div>
     </section>
   );
